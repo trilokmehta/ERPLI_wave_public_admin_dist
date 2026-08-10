@@ -4,3 +4,18 @@
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: SAMEORIGIN
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://source.zoom.us; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://abacus-api.erpli.com wss://abacus-api.erpli.com https://*.supabase.co wss://*.supabase.co https://*.zoom.us https://pub-ac805a7c7b0849ca8cf86ae70f240bda.r2.dev; frame-src 'self' https://*.zoom.us; object-src 'none'; base-uri 'self'; form-action 'self'
+
+# Vite fingerprints every filename under /assets, so a changed file is a changed
+# URL and these can be cached forever.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# index.html is the one file whose URL never changes, so it is the only thing
+# pinning visitors to an old build -- it names which fingerprinted bundle to
+# load. Cached, it keeps serving yesterday's app after a deploy. no-cache still
+# allows storage, it just forces a revalidation first.
+/
+  Cache-Control: no-cache, must-revalidate
+
+/index.html
+  Cache-Control: no-cache, must-revalidate
