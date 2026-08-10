@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zoom Integration Guide — Abacus4U Live Classes</title>
+    <meta name="description" content="How to add, use, and remove the Abacus4U Live Classes Zoom integration." />
+    <style>
+      :root { color-scheme: light; }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.65; color: #1f2937; background: #f9fafb;
+      }
+      .site-header {
+        background: #fff; border-bottom: 1px solid #e5e7eb;
+        position: sticky; top: 0; z-index: 10;
+      }
+      .site-header .inner {
+        max-width: 860px; margin: 0 auto; padding: 16px 24px;
+        display: flex; align-items: center; justify-content: space-between;
+      }
+      .site-header .brand { font-weight: 700; font-size: 18px; color: #111827; text-decoration: none; }
+      .site-header nav { display: flex; gap: 20px; font-size: 14px; }
+      .site-header nav a { color: #4b5563; text-decoration: none; }
+      .site-header nav a:hover { color: #2563eb; }
+      .wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 80px; }
+      h1 { font-size: 32px; margin: 0 0 4px; }
+      h2 { font-size: 22px; margin: 40px 0 12px; padding-top: 8px; border-top: 1px solid #e5e7eb; }
+      h3 { font-size: 16px; margin: 22px 0 8px; }
+      .meta { color: #6b7280; font-size: 14px; margin-bottom: 28px; }
+      a { color: #2563eb; }
+      ol, ul { padding-left: 22px; }
+      li { margin: 7px 0; }
+      .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 32px 36px; }
+      .note { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; margin: 16px 0; font-size: 14px; }
+      .warn { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 12px 16px; margin: 16px 0; font-size: 14px; }
+      code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-size: 90%; }
+      .site-footer {
+        border-top: 1px solid #e5e7eb; background: #fff;
+        margin-top: 40px; padding: 32px 24px; text-align: center;
+        font-size: 13px; color: #9ca3af;
+      }
+      .site-footer a { color: #6b7280; }
+      .site-footer .links { margin-top: 8px; }
+      .site-footer .links a { margin: 0 8px; }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="inner">
+        <a class="brand" href="https://abacus.erpli.com">Abacus4U</a>
+        <nav>
+          <a href="https://abacus.erpli.com">Home</a>
+          <a href="/resources/tutorials/zoom-help.html">Tutorials</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <div class="card">
+        <h1>Abacus4U Live Classes — Zoom Integration Guide</h1>
+        <p class="meta">Last updated: 16 June 2026</p>
+
+        <p>
+          Abacus4U Live Classes lets a teacher or institute connect their own Zoom account so
+          that Zoom meetings for online classes are created automatically when a class is
+          scheduled. This guide explains how to add, use, and remove the integration.
+        </p>
+
+        <!-- ADDING -->
+        <h2>1. Adding the app (connecting Zoom)</h2>
+        <ol>
+          <li>Log in to Abacus4U at your institute's URL with your teacher or institute-admin account.</li>
+          <li>In the left sidebar, open <strong>Live Classes</strong>.</li>
+          <li>Click the <strong>Connect</strong> button in the top-right of the page.</li>
+          <li>You are redirected to Zoom. Review the requested permissions and click <strong>Allow</strong> to authorize.</li>
+          <li>You are returned to Abacus4U and the status changes to <strong>Connected</strong>, showing your Zoom email.</li>
+        </ol>
+        <div class="note">
+          <strong>Permissions requested:</strong> <code>user:read</code> (read your basic Zoom
+          profile to identify your account) and <code>meeting:write</code> (create Zoom meetings
+          for your classes). The app only ever acts on your own Zoom account.
+        </div>
+
+        <h3>Troubleshooting adding the app</h3>
+        <ul>
+          <li><strong>"You cannot authorize this app"</strong> — your Zoom account admin must allow the app, or you must be signed in to the correct Zoom account. Sign in with the Zoom account you want to use for classes.</li>
+          <li><strong>Redirected back but not connected</strong> — the authorization link may have expired. Click <strong>Connect</strong> again to restart.</li>
+          <li><strong>Still stuck?</strong> Contact us at <a href="mailto:support@abacus4u.com">support@abacus4u.com</a>.</li>
+        </ul>
+
+        <!-- USAGE -->
+        <h2>2. Usage</h2>
+
+        <h3>Feature: Connect a Zoom account</h3>
+        <p><strong>Use case:</strong> Link your Zoom account once so classes can be hosted on it.</p>
+        <p><strong>Prerequisites:</strong> A Zoom account, and a teacher or institute-admin role in Abacus4U.</p>
+
+        <h3>Feature: Create a live class (auto-create Zoom meeting)</h3>
+        <p><strong>Use case:</strong> Schedule an online class; a Zoom meeting is created automatically on your connected account.</p>
+        <p><strong>Prerequisites:</strong> Your Zoom account must be connected (see section 1).</p>
+        <ol>
+          <li>On the <strong>Live Classes</strong> page, click <strong>Create Live Class</strong>.</li>
+          <li>Enter the class title, start time, and the batch(es) of students.</li>
+          <li>Save. A Zoom meeting is created on your Zoom account and a join link is stored.</li>
+          <li>Enrolled students see the class in their student app and join via the meeting link at the scheduled time.</li>
+        </ol>
+
+        <h3>Feature: Join / open a class</h3>
+        <p><strong>Use case:</strong> Open the class to start or join the Zoom meeting.</p>
+        <p><strong>Prerequisites:</strong> A scheduled class with a Zoom meeting.</p>
+
+        <!-- REMOVING -->
+        <h2>3. Removing the app (disconnecting Zoom)</h2>
+
+        <h3>Option A — Disconnect from inside Abacus4U</h3>
+        <ol>
+          <li>Open <strong>Live Classes</strong>.</li>
+          <li>Click <strong>Disconnect</strong> next to your connected Zoom status.</li>
+          <li>Confirm. Your stored Zoom OAuth tokens are deleted immediately.</li>
+        </ol>
+
+        <h3>Option B — Remove from your Zoom account</h3>
+        <ol>
+          <li>Sign in to the Zoom App Marketplace at <a href="https://marketplace.zoom.us" target="_blank" rel="noreferrer">marketplace.zoom.us</a>.</li>
+          <li>Go to <strong>Manage &rarr; Added Apps</strong> (or <strong>Settings &rarr; Installed Apps</strong>).</li>
+          <li>Find <strong>Abacus4U Live Classes</strong> and click <strong>Remove</strong>.</li>
+        </ol>
+
+        <div class="warn">
+          <strong>Implications of de-authorization:</strong> Once you disconnect or remove the app,
+          Abacus4U can no longer create Zoom meetings on your behalf, and any future classes will
+          need a new connection or a manually pasted meeting link. <strong>Data removal:</strong>
+          we delete your stored Zoom OAuth tokens and connection record. Meetings already created
+          on your Zoom account remain in your Zoom account and are managed there. To request
+          deletion of any remaining associated data, email
+          <a href="mailto:support@abacus4u.com">support@abacus4u.com</a>.
+        </div>
+
+        <h2>Support</h2>
+        <p>
+          Need help? Contact <a href="mailto:support@abacus4u.com">support@abacus4u.com</a>.
+          See also our <a href="/privacy.html">Privacy Policy</a> and
+          <a href="/terms.html">Terms of Use</a>.
+        </p>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      &copy; 2026 Abacus4U. All rights reserved.
+      <div class="links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="mailto:support@abacus4u.com">Support</a>
+      </div>
+    </footer>
+  </body>
+</html>

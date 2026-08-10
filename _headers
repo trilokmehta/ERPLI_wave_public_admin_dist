@@ -1,0 +1,6 @@
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://source.zoom.us; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://abacus-api.erpli.com wss://abacus-api.erpli.com https://*.supabase.co wss://*.supabase.co https://*.zoom.us https://pub-ac805a7c7b0849ca8cf86ae70f240bda.r2.dev; frame-src 'self' https://*.zoom.us; object-src 'none'; base-uri 'self'; form-action 'self'
