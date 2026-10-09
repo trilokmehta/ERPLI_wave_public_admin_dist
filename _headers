@@ -1,0 +1,25 @@
+# worker-src/child-src are spelled out below because the Zoom Meeting SDK spawns
+# its media workers from blob: URLs. With no worker-src they fall back to
+# default-src 'self', which blocks blob: and kills audio/video after the join
+# already succeeded -- a failure that looks nothing like a CSP problem.
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://source.zoom.us; worker-src 'self' blob:; child-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self' blob: https://abacus-api.erpli.com wss://abacus-api.erpli.com https://*.supabase.co wss://*.supabase.co https://*.zoom.us wss://*.zoom.us https://source.zoom.us https://pub-ac805a7c7b0849ca8cf86ae70f240bda.r2.dev; frame-src 'self' https://*.zoom.us; object-src 'none'; base-uri 'self'; form-action 'self'
+
+# Vite fingerprints every filename under /assets, so a changed file is a changed
+# URL and these can be cached forever.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# index.html is the one file whose URL never changes, so it is the only thing
+# pinning visitors to an old build -- it names which fingerprinted bundle to
+# load. Cached, it keeps serving yesterday's app after a deploy. no-cache still
+# allows storage, it just forces a revalidation first.
+/
+  Cache-Control: no-cache, must-revalidate
+
+/index.html
+  Cache-Control: no-cache, must-revalidate

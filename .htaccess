@@ -1,0 +1,19 @@
+# SPA fallback for Apache hosts (e.g. Hostinger). public/_redirects is the
+# Cloudflare Pages/Netlify equivalent -- Apache ignores that file entirely, so
+# without this, any path other than "/" (like /register or /verify) 404s
+# straight from the server before React Router ever gets a chance to run.
+#
+# Real files and directories (JS/CSS in /assets, favicon.svg, terms.html, ...)
+# are served as-is; everything else falls through to index.html so
+# main.jsx can read window.location.pathname itself.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  RewriteRule ^ index.html [L]
+</IfModule>

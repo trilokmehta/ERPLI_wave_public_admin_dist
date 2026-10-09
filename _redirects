@@ -1,0 +1,5 @@
+# SPA fallback: Cloudflare Pages serves static files directly when they exist
+# (so /assets/*.js still hits the real file), but any other path -- like
+# /register loaded straight from a shared link, or a refresh on it -- has to
+# fall through to index.html so React Router/main.jsx can read the path.
+/*  /index.html  200
